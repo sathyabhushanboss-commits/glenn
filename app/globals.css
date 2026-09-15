@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #050505;
+  --color-charcoal: #111111;
+  --color-paper: #ffffff;
+  --color-warm: #f7f5f0;
+  --color-ember: #f26a21;
+  --color-brass: #c9a227;
+
+  --font-display: var(--font-manrope);
+  --font-body: var(--font-inter);
+
+  --breakpoint-xs: 375px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-ember);
+  color: var(--color-paper);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Custom cursor: hide native cursor only when the custom one is active */
+.cursor-none-desktop {
+  cursor: none;
+}
+
+/* Thin gold hairline utility */
+.hairline-gold {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-brass) 50%,
+    transparent
+  );
+  height: 1px;
+}
+
+/* Marquee */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Utility scrollbar hide for mobile filter row */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-ember);
+  outline-offset: 3px;
+}
