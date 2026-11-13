@@ -45,17 +45,13 @@ export const baseKeywords = [
   "Interior Designers in Bangalore",
   "Interior Designers in Bengaluru",
   "Residential Interior Designers Bangalore",
-  "Commercial Interior Designers Bangalore",
   "Home Interior Designers Bangalore",
   "Villa Interior Designers Bangalore",
   "Apartment Interior Designers Bangalore",
   "Modular Kitchen Designers Bangalore",
-  "Wardrobe Designers Bangalore",
+  "Living Room Interior Designers Bangalore",
+  "Bedroom Interior Designers Bangalore",
   "Office Interior Designers Bangalore",
-  "Commercial Interior Designers Bengaluru",
-  "Retail Interior Designers Bangalore",
-  "Restaurant Interior Designers Bangalore",
-  "Hotel Interior Designers Bangalore",
   "Custom Interior Designers Bangalore",
   "Turnkey Interior Designers Bangalore",
 ];
@@ -81,7 +77,7 @@ export function localBusinessJsonLd() {
     areaServed: "Bengaluru",
     foundingDate: "2003",
     description:
-      "Residential and commercial interior design, in-house manufacturing, assembly and installation in Bengaluru since 2003.",
+      "Residential interior design, in-house manufacturing, assembly and installation in Bengaluru since 2003.",
   };
 }
 

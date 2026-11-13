@@ -26,8 +26,8 @@ export function PortfolioPreview() {
               Spaces that speak for themselves.
             </TextReveal>
             <FadeUp delay={0.15} className="mt-6 max-w-lg text-lg text-ink/60">
-              A selection of residential and commercial spaces designed
-              around people, purpose and place.
+              A selection of homes designed around the people who live in
+              them.
             </FadeUp>
           </div>
           <MagneticButton href="/portfolio" variant="ghost">

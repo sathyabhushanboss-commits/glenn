@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { navLinks, site, whatsappHref } from "@/lib/site";
+import { navLinks, serviceAreas, site, whatsappHref } from "@/lib/site";
 import { MagneticButton } from "./MagneticButton";
 
 export function Footer() {
@@ -8,11 +9,17 @@ export function Footer() {
       <div className="mx-auto max-w-[1600px]">
         <div className="grid grid-cols-1 gap-14 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <h2 className="font-display text-3xl font-bold uppercase tracking-[0.05em] sm:text-4xl">
-              {site.name}
-            </h2>
+            <Link href="/" aria-label={`${site.name} home`} className="inline-block">
+              <Image
+                src="/logo-light.png"
+                alt={site.name}
+                width={1384}
+                height={627}
+                className="h-20 w-auto sm:h-24"
+              />
+            </Link>
             <p className="mt-4 text-sm uppercase tracking-[0.15em] text-paper/50">
-              Residential + Commercial Interiors
+              Residential Interiors
             </p>
             <p className="mt-1 text-sm uppercase tracking-[0.15em] text-brass">
               Design • Manufacture • Install
@@ -68,7 +75,29 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col gap-4 border-t border-paper/10 pt-8 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-20 border-t border-paper/10 pt-10">
+          <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-paper/50">
+            Interior Designers Across Bengaluru
+          </h3>
+          <p className="mt-3 max-w-3xl text-sm text-paper/50">
+            {site.name} designs, manufactures and installs home interiors, modular
+            kitchens and wardrobes in every part of Bengaluru, including:
+          </p>
+          <ul className="mt-6 flex flex-wrap gap-x-2 gap-y-2 text-xs text-paper/60">
+            {serviceAreas.map((area, i) => (
+              <li key={area}>
+                {area}
+                {i < serviceAreas.length - 1 && (
+                  <span aria-hidden="true" className="ml-2 text-paper/20">
+                    /
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-12 flex flex-col gap-4 border-t border-paper/10 pt-8 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {site.name}. All Rights Reserved.</p>
           <p>{site.address.full}</p>
         </div>

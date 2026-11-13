@@ -9,7 +9,7 @@ import { AboutExperience } from "./about-client";
 export const metadata: Metadata = buildMetadata({
   title: "About Glenn Interior | Interior Design Company in Bangalore",
   description:
-    "Since 2003, Glenn Interior has designed, manufactured and installed residential and commercial interiors across Bengaluru — all under one roof.",
+    "Since 2003, Glenn Interior has designed, manufactured and installed home interiors across Bengaluru — all under one roof.",
   path: "/about",
   keywords: baseKeywords,
 });

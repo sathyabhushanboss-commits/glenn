@@ -9,7 +9,7 @@ import { site, whatsappHref } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Contact Glenn Interior | Interior Designers in Bangalore",
   description:
-    "Get in touch with Glenn Interior for residential and commercial interior design in Bengaluru. Call, WhatsApp, or request a free consultation.",
+    "Get in touch with Glenn Interior for residential interior design in Bengaluru. Call, WhatsApp, or request a free consultation.",
   path: "/contact",
   keywords: baseKeywords,
 });

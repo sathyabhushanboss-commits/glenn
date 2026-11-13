@@ -31,15 +31,15 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Glenn Interior | Residential & Commercial Interior Designers in Bangalore",
+    default: "Glenn Interior | Residential Interior Designers in Bangalore",
     template: `%s | ${site.name}`,
   },
   description:
-    "Glenn Interior designs, manufactures and installs residential and commercial interiors in Bengaluru. In-house manufacturing, custom design, since 2003.",
+    "Glenn Interior designs, manufactures and installs home interiors in Bengaluru. In-house manufacturing, custom design, since 2003.",
   keywords: baseKeywords,
   authors: [{ name: site.name }],
   openGraph: {
-    title: "Glenn Interior — Residential & Commercial Interiors",
+    title: "Glenn Interior — Residential Interiors",
     description:
       "Custom interior design, in-house manufacturing and professional installation in Bengaluru.",
     url: site.url,
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Glenn Interior — Residential & Commercial Interiors",
+    title: "Glenn Interior — Residential Interiors",
     description:
       "Custom interior design, in-house manufacturing and professional installation in Bengaluru.",
   },

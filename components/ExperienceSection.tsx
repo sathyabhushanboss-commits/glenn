@@ -15,8 +15,7 @@ export function ExperienceSection() {
         </TextReveal>
         <FadeUp delay={0.15} className="mt-8 max-w-xl text-lg text-paper/70">
           For more than two decades, Glenn Interior has been creating
-          customised interior solutions for homes, businesses and commercial
-          spaces across Bengaluru.
+          customised interior solutions for homes across Bengaluru.
         </FadeUp>
 
         <div className="mt-20 grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-4">

@@ -4,16 +4,12 @@
 
 export type PortfolioCategory =
   | "Residential"
-  | "Commercial"
   | "Kitchen"
   | "Living Room"
   | "Bedroom"
   | "Wardrobe"
   | "Villa"
   | "Office"
-  | "Retail"
-  | "Restaurant"
-  | "Hospitality"
   | "Custom";
 
 export type PortfolioProject = {
@@ -96,57 +92,13 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: "modern-executive-office",
     title: "Modern Executive Office",
-    category: ["Commercial", "Office"],
+    category: ["Office"],
     location: "Outer Ring Road, Bengaluru",
     image:
       "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop",
     size: "landscape",
     description:
       "An executive floor with private cabins, a boardroom and open workstations built for a fast-growing technology team.",
-  },
-  {
-    id: "boutique-retail-space",
-    title: "Boutique Retail Space",
-    category: ["Commercial", "Retail"],
-    location: "Church Street, Bengaluru",
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1600&auto=format&fit=crop",
-    size: "portrait",
-    description:
-      "A fashion boutique fit-out with modular display fixtures, a fitting suite and a facade designed to draw footfall.",
-  },
-  {
-    id: "contemporary-showroom",
-    title: "Contemporary Showroom",
-    category: ["Commercial", "Retail"],
-    location: "Bannerghatta Road, Bengaluru",
-    image:
-      "https://images.unsplash.com/photo-1631048500138-f4a01c37e17f?q=80&w=1600&auto=format&fit=crop",
-    size: "landscape",
-    description:
-      "A product showroom built around flexible display walls, brand signage and a customer lounge.",
-  },
-  {
-    id: "modern-restaurant",
-    title: "Modern Restaurant",
-    category: ["Commercial", "Restaurant"],
-    location: "Indiranagar, Bengaluru",
-    image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600&auto=format&fit=crop",
-    size: "wide",
-    description:
-      "A 60-cover restaurant with a show kitchen, custom banquette seating and acoustic ceiling treatment.",
-  },
-  {
-    id: "premium-hospitality-space",
-    title: "Premium Hospitality Space",
-    category: ["Commercial", "Hospitality"],
-    location: "MG Road, Bengaluru",
-    image:
-      "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=1600&auto=format&fit=crop",
-    size: "landscape",
-    description:
-      "A boutique hotel lobby and reception designed to set the tone for the guest experience that follows.",
   },
   {
     id: "minimalist-home",
@@ -184,24 +136,13 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: "corporate-workspace",
     title: "Corporate Workspace",
-    category: ["Commercial", "Office"],
+    category: ["Office"],
     location: "Electronic City, Bengaluru",
     image:
       "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1600&auto=format&fit=crop",
     size: "wide",
     description:
       "A 12,000 sq. ft. corporate floor combining collaborative zones, quiet cabins and a staff cafeteria.",
-  },
-  {
-    id: "premium-commercial-interior",
-    title: "Premium Commercial Interior",
-    category: ["Commercial"],
-    location: "Domlur, Bengaluru",
-    image:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1600&auto=format&fit=crop",
-    size: "landscape",
-    description:
-      "A meeting-room-led fit-out for a consulting firm, finished in brushed brass and dark walnut.",
   },
   {
     id: "contemporary-duplex",
@@ -247,32 +188,17 @@ export const portfolioProjects: PortfolioProject[] = [
     description:
       "A full renovation of a 20-year-old apartment — new layout, new services, new interiors, same address.",
   },
-  {
-    id: "salon-interior-project",
-    title: "Contemporary Salon Interior",
-    category: ["Commercial", "Retail"],
-    location: "Koramangala, Bengaluru",
-    image:
-      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1600&auto=format&fit=crop",
-    size: "portrait",
-    description:
-      "A salon and spa fit-out with a calm material palette, private treatment rooms and a considered reception sequence.",
-  },
 ];
 
 export const portfolioFilters: ("ALL" | PortfolioCategory)[] = [
   "ALL",
   "Residential",
-  "Commercial",
   "Kitchen",
   "Living Room",
   "Bedroom",
   "Wardrobe",
   "Villa",
   "Office",
-  "Retail",
-  "Restaurant",
-  "Hospitality",
   "Custom",
 ];
 
@@ -283,12 +209,17 @@ export type ServiceItem = {
   description: string;
   benefits: string[];
   image: string;
+  /** 10 gallery photos shown under the service on /services. */
+  gallery: string[];
 };
 
-export const residentialServices: ServiceItem[] = [
+const unsplash = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?q=80&w=1600&auto=format&fit=crop`;
+
+export const services: ServiceItem[] = [
   {
-    slug: "complete-home-interiors",
-    title: "Complete Home Interiors",
+    slug: "full-home-interiors",
+    title: "Full Home Interiors",
     short: "End-to-end design for apartments, villas and independent homes.",
     description:
       "From the first floor plan to the last handle fitted, we design, manufacture and install every element of your home as one continuous project — not a series of separate vendors.",
@@ -299,26 +230,18 @@ export const residentialServices: ServiceItem[] = [
     ],
     image:
       "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "apartment-interiors",
-    title: "Apartment Interiors",
-    short: "1BHK, 2BHK, 3BHK, 4BHK and premium apartments.",
-    description:
-      "Apartment layouts come with fixed constraints — we work with them, not against them, to make every square foot count.",
-    benefits: ["Space-efficient layouts", "Storage-first planning", "Fast turnaround"],
-    image:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "villa-interiors",
-    title: "Villa Interiors",
-    short: "Luxury villas, duplexes and independent residences.",
-    description:
-      "Larger homes need a stronger design thread running through them. We build that thread from the entrance to the last room.",
-    benefits: ["Whole-home design coherence", "Premium material sourcing", "Dedicated project lead"],
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop",
+    gallery: [
+      "1600210492486-724fe5c67fb0",
+      "1600210492493-0946911123ea",
+      "1600566753086-00f18fb6b3ea",
+      "1600573472550-8090b5e0745e",
+      "1600607687920-4e2a09cf159d",
+      "1502005229762-cf1b2da7c5d6",
+      "1617806118233-18e1de247200",
+      "1560185007-cde436f6a4d0",
+      "1560448204-e02f11c3d0e2",
+      "1554995207-c18c203602cb",
+    ].map(unsplash),
   },
   {
     slug: "modular-kitchens",
@@ -329,239 +252,106 @@ export const residentialServices: ServiceItem[] = [
     benefits: ["In-house manufacturing", "Soft-close hardware", "Custom layouts"],
     image:
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600&auto=format&fit=crop",
+    gallery: [
+      "1600585152220-90363fe7e115",
+      "1602028915047-37269d1a73f7",
+      "1588854337236-6889d631faa8",
+      "1556912173-3bb406ef7e77",
+      "1556912172-45b7abe8b7e1",
+      "1565538810643-b5bdb714032a",
+      "1556911220-bff31c812dba",
+      "1556909212-d5b604d0c90d",
+      "1600489000022-c2086d79f9d4",
+      "1484154218962-a197022b5858",
+    ].map(unsplash),
   },
   {
-    slug: "wardrobes",
-    title: "Wardrobes",
-    short: "Sliding, hinged, walk-in, loft storage and custom wardrobes.",
-    description:
-      "Wardrobes designed around what you actually own, with internal organisers built to match.",
-    benefits: ["Made-to-measure fit", "Internal organisers", "Soft-close shutters"],
-    image:
-      "https://images.unsplash.com/photo-1600166898405-da9535204843?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "living-room-interiors",
-    title: "Living Room Interiors",
+    slug: "living-room-design",
+    title: "Living Room Design",
     short: "TV units, entertainment walls, display units, feature walls and storage.",
     description:
       "The room your household spends the most time in, designed to hold up to daily life.",
     benefits: ["Durable finishes", "Integrated storage", "Considered lighting"],
     image:
       "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1600&auto=format&fit=crop",
+    gallery: [
+      "1613545325278-f24b0cae1224",
+      "1600210491892-03d54c0aaf87",
+      "1600607687939-ce8a6c25118c",
+      "1600585154084-4e5fe7c39198",
+      "1598928506311-c55ded91a20c",
+      "1631679706909-1844bbd07221",
+      "1564078516393-cf04bd966897",
+      "1613545325268-9265e1609167",
+      "1618219740975-d40978bb7378",
+      "1618221195710-dd6b41faaea6",
+    ].map(unsplash),
   },
   {
-    slug: "bedroom-interiors",
-    title: "Bedroom Interiors",
-    short: "Master, kids and guest bedrooms, bed-back panels, side tables and storage.",
+    slug: "bedroom-design",
+    title: "Bedroom Design",
+    short: "Master, kids and guest bedrooms, wardrobes, bed-back panels and storage.",
     description:
       "Restful, storage-rich bedrooms designed room by room, person by person.",
-    benefits: ["Custom bed-back panels", "Ambient lighting", "Room-specific storage"],
+    benefits: ["Custom bed-back panels", "Made-to-measure wardrobes", "Ambient lighting"],
     image:
       "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1600&auto=format&fit=crop",
+    gallery: [
+      "1505693416388-ac5ce068fe85",
+      "1617098900591-3f90928e8c54",
+      "1617104678098-de229db51175",
+      "1616594039964-ae9021a400a0",
+      "1512918728675-ed5a9ecdebfd",
+      "1631049307264-da0ec9d70304",
+      "1540518614846-7eded433c457",
+      "1618221118493-9cfa1a1c00da",
+      "1586105251261-72a756497a11",
+      "1600607687644-c7171b42498f",
+    ].map(unsplash),
   },
   {
-    slug: "dining-interiors",
-    title: "Dining Interiors",
-    short: "Dining units, crockery units and display cabinets.",
+    slug: "turnkey-projects",
+    title: "Turnkey Projects",
+    short: "One team from design to handover — you move in when it's done.",
     description:
-      "Dining spaces built to host, with storage that keeps the table itself clear.",
-    benefits: ["Crockery and display storage", "Space-matched dining units"],
+      "We take the whole project off your hands: design, manufacturing, installation and final finishing, delivered ready to live in.",
+    benefits: ["Design to handover", "One point of contact", "Ready-to-move-in finish"],
     image:
-      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop",
+    gallery: [
+      "1613490493576-7fde63acd811",
+      "1613977257363-707ba9348227",
+      "1600585154340-be6161a56a0c",
+      "1600566753376-12c8ab7fb75b",
+      "1600585153490-76fb20a32601",
+      "1600047509807-ba8f99d2cdde",
+      "1600585154526-990dced4db0d",
+      "1600607688969-a5bfcd646154",
+      "1600047509358-9dc75507daeb",
+      "1600566753190-17f0baa2a6c3",
+    ].map(unsplash),
   },
-  {
-    slug: "pooja-room-interiors",
-    title: "Pooja Room Interiors",
-    short: "Traditional and contemporary customised pooja spaces.",
-    description:
-      "A dedicated pooja space designed with the right materials, orientation and detailing.",
-    benefits: ["Traditional and modern styles", "Considered lighting and finishes"],
-    image:
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "kids-room-interiors",
-    title: "Kids Room Interiors",
-    short: "Beds, study areas, storage and wardrobes.",
-    description:
-      "Rooms designed to be safe today and adaptable as your child grows.",
-    benefits: ["Growth-adaptable furniture", "Study and storage zones"],
-    image:
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "home-office-interiors",
-    title: "Home Office Interiors",
-    short: "Workstations, study units, bookshelves and storage.",
-    description:
-      "A proper workspace at home — not a desk pushed into a corner.",
-    benefits: ["Dedicated work zones", "Cable-managed workstations"],
-    image:
-      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "bathroom-interiors",
-    title: "Bathroom Interiors",
-    short: "Vanity units, mirrors and storage.",
-    description:
-      "Vanity and storage solutions built to handle daily moisture without compromising on finish.",
-    benefits: ["Moisture-resistant materials", "Custom vanity units"],
-    image:
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "false-ceiling-lighting",
-    title: "False Ceiling & Lighting",
-    short: "Cove lighting, profile lighting, decorative ceilings and ambient lighting.",
-    description:
-      "Lighting layered in three tiers — ambient, task and accent — designed alongside the ceiling, not after it.",
-    benefits: ["Layered lighting design", "Decorative ceiling treatments"],
-    image:
-      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "custom-furniture",
-    title: "Custom Furniture",
-    short: "Beds, sofas, tables, TV units, storage and custom pieces.",
-    description:
-      "Furniture manufactured in-house to match your interior exactly — no compromise pieces bought off a showroom floor.",
-    benefits: ["In-house manufacturing", "Exact-fit furniture"],
-    image:
-      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "home-renovation",
-    title: "Home Renovation",
-    short: "Complete or partial renovation and transformation.",
-    description:
-      "Whether it's one room or the whole home, we plan renovation work to minimise disruption to your daily life.",
-    benefits: ["Phased execution options", "Minimal-disruption planning"],
-    image:
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1600&auto=format&fit=crop",
-  },
-];
-
-export const commercialServices: ServiceItem[] = [
   {
     slug: "office-interiors",
     title: "Office Interiors",
-    short: "Corporate offices, startup offices, executive cabins, meeting rooms, reception and workstations.",
+    short: "Cabins, meeting rooms, reception areas and workstations.",
     description:
       "Workspaces designed around how your team actually works, from the reception to the last cabin.",
     benefits: ["Workflow-based planning", "Fast execution timelines"],
     image:
       "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "corporate-interiors",
-    title: "Corporate Interiors",
-    short: "Workstations, conference rooms, executive spaces and collaboration zones.",
-    description:
-      "Interiors that hold up to daily corporate use while still making an impression on visiting clients.",
-    benefits: ["Durable, low-maintenance finishes", "Brand-aligned detailing"],
-    image:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "retail-interiors",
-    title: "Retail Interiors",
-    short: "Shops, boutiques, fashion stores, electronics stores and lifestyle stores.",
-    description:
-      "Retail fit-outs built to move footfall through the store and hold up to daily handling.",
-    benefits: ["Modular display systems", "Fast, low-disruption fit-out"],
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "showroom-interiors",
-    title: "Showroom Interiors",
-    short: "Product displays, counters, storage, customer areas and brand experience.",
-    description:
-      "Showrooms designed to let the product lead, with the interior working quietly around it.",
-    benefits: ["Flexible display systems", "Brand-led material choices"],
-    image:
-      "https://images.unsplash.com/photo-1631048500138-f4a01c37e17f?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "restaurant-cafe-interiors",
-    title: "Restaurant & Cafe Interiors",
-    short: "Restaurants, cafes, bakeries, dining spaces and service counters.",
-    description:
-      "Interiors built for turnover, service flow and comfort in equal measure.",
-    benefits: ["Service-flow planning", "Acoustic and material comfort"],
-    image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "hotel-hospitality-interiors",
-    title: "Hotel & Hospitality Interiors",
-    short: "Hotel rooms, lobby, reception, guest areas and restaurants.",
-    description:
-      "Hospitality interiors designed to set a tone from the first minute and hold it through the stay.",
-    benefits: ["Guest-experience-led design", "Durable hospitality-grade finishes"],
-    image:
-      "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "salon-spa-interiors",
-    title: "Salon & Spa Interiors",
-    short: "Reception, styling areas, treatment rooms, storage and waiting areas.",
-    description:
-      "Calm, considered interiors built around client comfort and staff workflow.",
-    benefits: ["Moisture-resistant materials", "Private treatment zones"],
-    image:
-      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "clinic-healthcare-interiors",
-    title: "Clinic & Healthcare Interiors",
-    short: "Clinics, dental clinics, consultation rooms, reception and waiting areas.",
-    description:
-      "Clean, calm and easy-to-maintain interiors that put patients at ease.",
-    benefits: ["Hygienic, low-maintenance surfaces", "Calm, reassuring material palette"],
-    image:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "educational-interiors",
-    title: "Educational Interiors",
-    short: "Schools, training centres, coaching centres, classrooms and libraries.",
-    description:
-      "Durable, focused learning spaces designed for daily heavy use.",
-    benefits: ["Impact-resistant materials", "Focus-oriented layouts"],
-    image:
-      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "studio-interiors",
-    title: "Studio Interiors",
-    short: "Photography studios, creative studios, content studios and production spaces.",
-    description:
-      "Flexible, controllable environments built for creative production work.",
-    benefits: ["Acoustic and lighting control", "Flexible modular layouts"],
-    image:
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "co-working-spaces",
-    title: "Co-working Spaces",
-    short: "Workstations, cabins, meeting rooms, reception and common spaces.",
-    description:
-      "Shared workspaces designed to feel considered for every member, not just the operator.",
-    benefits: ["Density-efficient planning", "Shared-amenity design"],
-    image:
-      "https://images.unsplash.com/photo-1524230572899-a752b3835840?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    slug: "commercial-renovation",
-    title: "Commercial Renovation",
-    short: "Complete commercial transformation and renovation.",
-    description:
-      "Renovation work planned to keep your business running while the space is rebuilt around it.",
-    benefits: ["Phased, low-downtime execution", "Full commercial transformation"],
-    image:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1600&auto=format&fit=crop",
+    gallery: [
+      "1497366754035-f200968a6e72",
+      "1497366811353-6870744d04b2",
+      "1524758631624-e2822e304c36",
+      "1556761175-4b46a572b786",
+      "1604328698692-f76ea9498e76",
+      "1562664377-709f2c337eb2",
+      "1497366216548-37526070297c",
+      "1497215728101-856f4ea42174",
+      "1531973576160-7125cd663d86",
+      "1572025442646-866d16c84a54",
+    ].map(unsplash),
   },
 ];
 
@@ -597,5 +387,5 @@ export const stats = [
   { value: 20, suffix: "+", label: "Years Experience" },
   { value: 500, suffix: "+", label: "Projects Delivered" },
   { value: 100, suffix: "%", label: "In-House Manufacturing" },
-  { value: 2, suffix: "", label: "Segments — Residential + Commercial" },
+  { value: 6, suffix: "", label: "Core Services" },
 ] as const;

@@ -4,7 +4,7 @@ export type LeadPayload = {
   name: string;
   phone: string;
   email: string;
-  projectType: string;
+  projectType?: string;
   location?: string;
   message?: string;
 };
@@ -19,8 +19,7 @@ function isValidLead(body: unknown): body is LeadPayload {
     b.phone.trim().length > 0 &&
     typeof b.email === "string" &&
     b.email.trim().length > 0 &&
-    typeof b.projectType === "string" &&
-    b.projectType.trim().length > 0
+    (b.projectType === undefined || typeof b.projectType === "string")
   );
 }
 

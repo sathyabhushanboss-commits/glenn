@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ContactForm } from "./ContactForm";
 
@@ -75,15 +76,22 @@ export function LeadPopup() {
               ×
             </button>
 
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-ember">
+            <Image
+              src="/logo-dark.png"
+              alt="Glenn Interior"
+              width={1384}
+              height={627}
+              className="h-14 w-auto"
+            />
+
+            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-ember">
               Let&apos;s Talk
             </p>
             <h3 className="mt-3 font-display text-3xl font-bold uppercase leading-tight text-ink">
               Let&apos;s design your dream space.
             </h3>
             <p className="mt-3 text-ink/60">
-              Tell us a little about your project and our team will get in
-              touch with you.
+              Share your details and our team will get in touch with you.
             </p>
 
             <div className="mt-8">

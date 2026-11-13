@@ -5,16 +5,12 @@ import { motion } from "framer-motion";
 import { MagneticButton } from "./MagneticButton";
 
 const projectTypes = [
-  "Complete Home",
-  "Apartment",
-  "Villa",
-  "Kitchen",
-  "Wardrobe",
-  "Residential Interior",
-  "Office",
-  "Retail",
-  "Restaurant",
-  "Commercial Interior",
+  "Full Home Interiors",
+  "Modular Kitchens",
+  "Living Room Design",
+  "Bedroom Design",
+  "Turnkey Projects",
+  "Office Interiors",
   "Other",
 ];
 
@@ -90,41 +86,47 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
           autoComplete="email"
           className={inputClasses}
         />
-        <input
-          name="location"
-          placeholder="Location"
-          className={inputClasses}
-        />
+        {!compact && (
+          <input
+            name="location"
+            placeholder="Location"
+            className={inputClasses}
+          />
+        )}
       </div>
 
-      <div>
-        <label htmlFor={compact ? "projectTypeCompact" : "projectType"} className="mb-2 block text-xs font-semibold uppercase tracking-[0.15em] text-ink/50">
-          Project Type
-        </label>
-        <select
-          id={compact ? "projectTypeCompact" : "projectType"}
-          name="projectType"
-          required
-          defaultValue=""
-          className={`${inputClasses} appearance-none`}
-        >
-          <option value="" disabled>
-            Select project type
-          </option>
-          {projectTypes.map((type) => (
-            <option key={type} value={type}>
-              {type}
+      {!compact && (
+        <div>
+          <label htmlFor="projectType" className="mb-2 block text-xs font-semibold uppercase tracking-[0.15em] text-ink/50">
+            Project Type
+          </label>
+          <select
+            id="projectType"
+            name="projectType"
+            required
+            defaultValue=""
+            className={`${inputClasses} appearance-none`}
+          >
+            <option value="" disabled>
+              Select project type
             </option>
-          ))}
-        </select>
-      </div>
+            {projectTypes.map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
 
-      <textarea
-        name="message"
-        placeholder="Tell us about your project"
-        rows={compact ? 3 : 4}
-        className={`${inputClasses} resize-none`}
-      />
+      {!compact && (
+        <textarea
+          name="message"
+          placeholder="Tell us about your project"
+          rows={4}
+          className={`${inputClasses} resize-none`}
+        />
+      )}
 
       {status === "error" && (
         <p className="text-sm text-red-600">

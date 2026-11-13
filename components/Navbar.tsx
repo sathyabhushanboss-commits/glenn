@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -32,10 +33,18 @@ export function Navbar() {
         <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-10">
           <Link
             href="/"
-            className="font-display text-lg font-bold uppercase tracking-[0.15em] text-paper"
+            aria-label={`${site.name} home`}
             data-cursor="link"
+            className="block"
           >
-            {site.name}
+            <Image
+            src="/logo-light.png"
+            alt={site.name}
+            width={1384}
+            height={627}
+            priority
+            className="h-10 w-auto md:h-12"
+          />
           </Link>
 
           <ul className="hidden items-center gap-10 md:flex">

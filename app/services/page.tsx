@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { ServicesTabs } from "@/components/ServicesTabs";
+import { ServicesList } from "@/components/ServicesList";
 import { TextReveal, FadeUp } from "@/components/TextReveal";
 import { buildMetadata, baseKeywords } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Residential & Commercial Interior Design Services | Glenn Interior",
+  title: "Residential Interior Design Services | Glenn Interior",
   description:
-    "Complete residential and commercial interior design services in Bengaluru — modular kitchens, wardrobes, offices, retail, restaurants and more, designed and manufactured in-house.",
+    "Residential interior design services in Bengaluru — full home interiors, modular kitchens, living rooms, bedrooms, turnkey projects and office interiors, designed and manufactured in-house.",
   path: "/services",
   keywords: baseKeywords,
 });
@@ -25,12 +25,12 @@ export default function ServicesPage() {
           What we design.
         </TextReveal>
         <FadeUp delay={0.15} className="mt-6 max-w-xl text-lg text-ink/60">
-          From a single modular kitchen to a complete commercial fit-out —
+          From a single modular kitchen to a complete turnkey home —
           design, manufacturing, assembly and installation, all in-house.
         </FadeUp>
 
         <div className="relative mt-16">
-          <ServicesTabs />
+          <ServicesList />
         </div>
       </div>
     </section>

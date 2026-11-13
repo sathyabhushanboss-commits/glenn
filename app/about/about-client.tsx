@@ -356,7 +356,7 @@ function Hero() {
           className="mt-8 flex flex-col gap-4 text-paper/80 sm:flex-row sm:items-center sm:gap-8"
         >
           <p className="text-base font-medium sm:text-lg">
-            Residential + Commercial Interiors
+            Residential Interiors
           </p>
           <span className="hidden h-4 w-px bg-paper/30 sm:block" />
           <p className="text-xs uppercase tracking-[0.25em] text-paper/60">
@@ -430,7 +430,7 @@ function OurStory() {
           </TextReveal>
           <FadeUp delay={0.15} className="mt-6 max-w-xl text-lg text-ink/70">
             We provide design, assembly and installation services for
-            residential and commercial needs since {site.since ?? "2003"}.
+            homes since {site.since ?? "2003"}.
             Every project is built around a customised, quality-first and
             cost-effective approach, backed by our in-house manufacturing
             capability.
@@ -467,28 +467,16 @@ function OurStory() {
 }
 
 /* ────────────────────────────────────────────────────────────────────────
-   03 — RESIDENTIAL + COMMERCIAL SPLIT
+   03 — WHAT WE DESIGN
    ──────────────────────────────────────────────────────────────────────── */
 
 const residentialServices = [
-  "Complete Homes",
-  "Apartments",
-  "Villas",
+  "Full Home Interiors",
   "Modular Kitchens",
-  "Bedrooms",
-  "Living Rooms",
-  "Wardrobes",
-  "Custom Furniture",
-];
-
-const commercialServices = [
-  "Offices",
-  "Retail",
-  "Showrooms",
-  "Restaurants",
-  "Hotels",
-  "Clinics",
-  "Commercial Spaces",
+  "Living Room Design",
+  "Bedroom Design",
+  "Turnkey Projects",
+  "Office Interiors",
 ];
 
 function SplitPanel({
@@ -605,10 +593,7 @@ function SplitPanel({
   );
 }
 
-function ResidentialCommercial() {
-  const [active, setActive] = useState<"residential" | "commercial">(
-    "residential",
-  );
+function WhatWeDesign() {
 
   return (
     <section className="relative overflow-hidden bg-ink px-0 py-24 md:py-32">
@@ -618,7 +603,7 @@ function ResidentialCommercial() {
           as="h2"
           className="mt-6 max-w-3xl font-display text-3xl font-bold uppercase leading-[1.1] text-paper sm:text-4xl md:text-5xl"
         >
-          Interiors for every kind of space.
+          Interiors shaped around the way you live.
         </TextReveal>
       </div>
 
@@ -631,19 +616,8 @@ function ResidentialCommercial() {
           image="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1600&auto=format&fit=crop"
           alt="Warmly lit modern residential living room"
           ctaLabel="Explore Residential"
-          active={active === "residential"}
-          onActivate={() => setActive("residential")}
-        />
-        <SplitPanel
-          index="02"
-          title="Commercial"
-          subtitle="Spaces built around the way you work and grow."
-          services={commercialServices}
-          image="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop"
-          alt="Modern commercial office interior with custom furniture"
-          ctaLabel="Explore Commercial"
-          active={active === "commercial"}
-          onActivate={() => setActive("commercial")}
+          active
+          onActivate={() => {}}
         />
       </div>
     </section>
@@ -900,14 +874,8 @@ const timeline = [
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1600&auto=format&fit=crop",
   },
   {
-    year: "2016",
-    text: "Commercial interiors expand into offices, retail and hospitality spaces.",
-    image:
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
     year: "Today",
-    text: "A full-service residential and commercial interior studio, still hands-on with every project.",
+    text: "A full-service residential interior studio, still hands-on with every project.",
     image:
       "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?q=80&w=1600&auto=format&fit=crop",
   },
@@ -1262,7 +1230,7 @@ function Statistics() {
           {[
             { value: 20, suffix: "+", label: "Years of Practice" },
             { value: 2003, suffix: "", label: "Established" },
-            { value: 2, suffix: "", label: "Core Segments" },
+            { value: 6, suffix: "", label: "Core Services" },
             { value: 1, suffix: "", label: "Integrated Process" },
           ].map((stat, i) => (
             <motion.div
@@ -1396,7 +1364,7 @@ const portfolioItems = [
   },
   {
     title: "Office Interior",
-    category: "Commercial",
+    category: "Office",
     image:
       "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop",
     span: "",
@@ -1411,10 +1379,10 @@ const portfolioItems = [
     aspect: "aspect-square",
   },
   {
-    title: "Retail Showroom",
-    category: "Commercial",
+    title: "Bedroom Design",
+    category: "Residential",
     image:
-      "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1600&auto=format&fit=crop",
     span: "md:col-span-2",
     aspect: "aspect-[16/9]",
   },
@@ -1530,7 +1498,7 @@ function FinalCTA() {
           Your space. Your way.
         </TextReveal>
         <FadeUp delay={0.2} className="mx-auto mt-6 max-w-md text-paper/70">
-          Residential and commercial interiors designed around your needs.
+          Home interiors designed around your needs.
         </FadeUp>
         <DrawLine tone="brass" className="mx-auto mt-8 w-16" />
 
@@ -1567,7 +1535,7 @@ export function AboutExperience() {
 
       <Hero />
       <OurStory />
-      <ResidentialCommercial />
+      <WhatWeDesign />
       <ProcessSection />
       <Manufacturing />
       <Timeline />

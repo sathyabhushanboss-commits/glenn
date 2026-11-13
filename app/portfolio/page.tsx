@@ -6,7 +6,7 @@ import { buildMetadata, baseKeywords } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Interior Design Portfolio | Glenn Interior Bangalore",
   description:
-    "Browse residential and commercial interior design projects by Glenn Interior — kitchens, living rooms, villas, offices, retail and hospitality spaces across Bengaluru.",
+    "Browse residential interior design projects by Glenn Interior — full homes, modular kitchens, living rooms, bedrooms and villas across Bengaluru.",
   path: "/portfolio",
   keywords: baseKeywords,
 });
@@ -25,8 +25,8 @@ export default function PortfolioPage() {
           Spaces that speak for themselves.
         </TextReveal>
         <FadeUp delay={0.15} className="mt-6 max-w-xl text-lg text-ink/60">
-          A selection of residential and commercial spaces designed around
-          people, purpose and place.
+          A selection of homes designed around the people who live in
+          them.
         </FadeUp>
 
         <div className="mt-16">

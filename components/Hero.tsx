@@ -63,7 +63,7 @@ export function Hero() {
           transition={{ delay: 1.5, duration: 0.8, ease }}
           className="mt-8 max-w-xl text-lg text-paper/80"
         >
-          Residential &amp; Commercial Interiors. Custom design, in-house
+          Residential Interiors. Custom design, in-house
           manufacturing and professional installation, since {site.since}.
         </motion.p>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { navLinks, site, whatsappHref } from "@/lib/site";
@@ -17,9 +18,15 @@ export function MobileMenu({ onClose }: { onClose: () => void }) {
       aria-modal="true"
     >
       <div className="flex items-center justify-between">
-        <span className="font-display text-lg font-bold uppercase tracking-[0.15em] text-paper">
-          {site.name}
-        </span>
+        <Link href="/" onClick={onClose} aria-label={`${site.name} home`}>
+          <Image
+            src="/logo-light.png"
+            alt={site.name}
+            width={1384}
+            height={627}
+            className="h-10 w-auto"
+          />
+        </Link>
         <button
           aria-label="Close menu"
           onClick={onClose}

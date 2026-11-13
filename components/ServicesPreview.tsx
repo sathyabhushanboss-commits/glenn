@@ -4,46 +4,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { services } from "@/lib/data";
 import { MagneticButton } from "./MagneticButton";
 import { TextReveal } from "./TextReveal";
 
-const featured = [
-  {
-    number: "01",
-    title: "Modular Kitchens",
-    tagline: "Function meets form.",
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1400&auto=format&fit=crop",
-  },
-  {
-    number: "02",
-    title: "Living Room Interiors",
-    tagline: "Built for how you actually live.",
-    image:
-      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1400&auto=format&fit=crop",
-  },
-  {
-    number: "03",
-    title: "Wardrobes & Storage",
-    tagline: "Made to measure, built in-house.",
-    image:
-      "https://images.unsplash.com/photo-1600166898405-da9535204843?q=80&w=1400&auto=format&fit=crop",
-  },
-  {
-    number: "04",
-    title: "Office Interiors",
-    tagline: "Workspaces designed around your team.",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1400&auto=format&fit=crop",
-  },
-  {
-    number: "05",
-    title: "Restaurant & Hospitality",
-    tagline: "Spaces engineered for experience.",
-    image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1400&auto=format&fit=crop",
-  },
-];
+const featured = services.map((service, i) => ({
+  number: String(i + 1).padStart(2, "0"),
+  title: service.title,
+  tagline: service.short,
+  image: service.image,
+}));
 
 export function ServicesPreview() {
   const [active, setActive] = useState(0);

@@ -1,6 +1,6 @@
 export const site = {
   name: "Glenn Interior",
-  tagline: "Residential & Commercial Interiors",
+  tagline: "Residential Interiors",
   descriptor: "Design • Manufacture • Assemble • Install",
   since: 2003,
   phone: "090087 93906",
@@ -37,4 +37,21 @@ export const navLinks = [
   { label: "Portfolio", href: "/portfolio" },
   { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" },
+] as const;
+
+// Bengaluru localities listed in the footer for local SEO ("interior designers in <area>").
+export const serviceAreas = [
+  "Jayanagar", "JP Nagar", "Banashankari", "Basavanagudi", "Padmanabhanagar",
+  "Purnapragna Layout", "Uttarahalli", "Kumaraswamy Layout", "Girinagar", "Rajarajeshwari Nagar",
+  "Kengeri", "Vijayanagar", "Rajajinagar", "Basaveshwaranagar", "Malleshwaram",
+  "Sadashivanagar", "Yeshwanthpur", "Mahalakshmi Layout", "Nagarbhavi", "Chandra Layout",
+  "Koramangala", "BTM Layout", "HSR Layout", "Bommanahalli", "Electronic City",
+  "Bannerghatta Road", "Begur", "Hulimavu", "Arekere", "Sarjapur Road",
+  "Bellandur", "Marathahalli", "Whitefield", "Brookefield", "Mahadevapura",
+  "KR Puram", "Indiranagar", "Domlur", "HAL Old Airport Road", "CV Raman Nagar",
+  "Ulsoor", "Frazer Town", "Richmond Town", "MG Road", "Shanti Nagar",
+  "Wilson Garden", "Hebbal", "RT Nagar", "Sahakara Nagar", "Yelahanka",
+  "Jakkur", "Thanisandra", "Hennur", "Kalyan Nagar", "HRBR Layout",
+  "Banaswadi", "Ramamurthy Nagar", "Hoodi", "Varthur", "Panathur",
+  "Kanakapura Road", "Talaghattapura", "Anjanapura", "Hosur Road", "Devanahalli",
 ] as const;
