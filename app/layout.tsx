@@ -74,7 +74,7 @@ export default function RootLayout({
         <ScrollProgress />
         <CustomCursor />
         <Navbar />
-        <main className="pb-16 md:pb-0">{children}</main>
+        <main>{children}</main>
         <Footer />
         <WhatsAppButton />
         <MobileBottomCTA />

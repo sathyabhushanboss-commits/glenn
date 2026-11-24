@@ -2,8 +2,10 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { FitImage } from "./FitImage";
 import { useRef } from "react";
 import { TextReveal, FadeUp } from "./TextReveal";
+import { SectionBg } from "./SectionBg";
 
 const shots = [
   {
@@ -42,9 +44,10 @@ export function ManufacturingSection() {
   const x = useTransform(scrollYProgress, [0, 1], ["2%", "-42%"]);
 
   return (
-    <section className="bg-warm py-28 md:py-36">
+    <section className="relative isolate overflow-hidden bg-warm py-28 md:py-36">
+      <SectionBg photo="1504148455328-c376907d081c" />
       <div className="mx-auto max-w-[1600px] px-6 md:px-10">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.3em] text-ember">
+        <p className="mb-6 text-sm font-extrabold uppercase tracking-[0.25em] text-ember">
           In-House Manufacturing
         </p>
         <TextReveal
@@ -53,7 +56,7 @@ export function ManufacturingSection() {
         >
           Made in-house. Built for you.
         </TextReveal>
-        <FadeUp delay={0.15} className="mt-6 max-w-xl text-lg text-ink/60">
+        <FadeUp delay={0.15} className="mt-6 max-w-xl text-lg text-ink font-medium">
           Our in-house manufacturing approach gives us greater control over
           quality, customisation, finishing, timelines and cost.
         </FadeUp>
@@ -66,15 +69,13 @@ export function ManufacturingSection() {
               key={shot.label}
               className="relative h-[52vh] w-[70vw] shrink-0 overflow-hidden sm:w-[46vw] md:w-[30vw] lg:w-[24vw]"
             >
-              <Image
+              <FitImage
                 src={shot.image}
                 alt={`${shot.label} at Glenn Interior's in-house facility`}
-                fill
                 sizes="30vw"
-                className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent" />
-              <span className="absolute bottom-5 left-5 text-xs font-semibold uppercase tracking-[0.25em] text-paper">
+              <div className="absolute inset-0 bg-linear-to-t from-ink/80 via-transparent to-transparent" />
+              <span className="absolute bottom-5 left-5 text-sm font-bold uppercase tracking-[0.25em] text-[#e8c547]">
                 {shot.label}
               </span>
             </div>

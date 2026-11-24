@@ -2,14 +2,15 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { FitImage } from "./FitImage";
 import Link from "next/link";
 import { useState } from "react";
 import { services } from "@/lib/data";
 import { MagneticButton } from "./MagneticButton";
 import { TextReveal } from "./TextReveal";
+import { SectionBg } from "./SectionBg";
 
-const featured = services.map((service, i) => ({
-  number: String(i + 1).padStart(2, "0"),
+const featured = services.map((service) => ({
   title: service.title,
   tagline: service.short,
   image: service.image,
@@ -19,7 +20,8 @@ export function ServicesPreview() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="bg-paper px-6 py-28 md:px-10 md:py-36">
+    <section className="relative isolate overflow-hidden bg-paper px-6 py-28 md:px-10 md:py-36">
+      <SectionBg photo="1616486338812-3dadae4b4ace" />
       <div className="mx-auto max-w-[1600px]">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <TextReveal
@@ -37,7 +39,7 @@ export function ServicesPreview() {
           <ul>
             {featured.map((service, i) => (
               <li
-                key={service.number}
+                key={service.title}
                 onMouseEnter={() => setActive(i)}
                 className="group border-b border-ink/10 py-6 first:border-t"
               >
@@ -46,16 +48,13 @@ export function ServicesPreview() {
                   data-cursor="link"
                   className="flex items-center justify-between gap-6"
                 >
-                  <span className="font-display text-sm text-brass">
-                    {service.number}
-                  </span>
                   <span className="flex-1 font-display text-2xl font-semibold uppercase text-ink transition-transform duration-300 group-hover:translate-x-2 sm:text-3xl">
                     {service.title}
                   </span>
-                  <span className="hidden text-sm text-ink/50 sm:block">
+                  <span className="hidden text-sm text-ink sm:block">
                     {service.tagline}
                   </span>
-                  <span className="text-ink/40 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-ember">
+                  <span className="text-ink/80 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-ember">
                     →
                   </span>
                 </Link>
@@ -73,12 +72,10 @@ export function ServicesPreview() {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="absolute inset-0"
               >
-                <Image
+                <FitImage
                   src={featured[active].image}
                   alt={featured[active].title}
-                  fill
                   sizes="40vw"
-                  className="object-cover"
                 />
               </motion.div>
             </AnimatePresence>

@@ -1,7 +1,7 @@
 "use client";
 
 import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
+import { FitImage } from "./FitImage";
 import { useRef } from "react";
 import { portfolioProjects, type PortfolioProject } from "@/lib/data";
 
@@ -30,23 +30,16 @@ function ShowcaseSlide({
   return (
     <motion.div style={{ opacity }} className="absolute inset-0">
       <motion.div style={{ scale }} className="absolute inset-0">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
+        <FitImage src={project.image} alt={project.title} sizes="100vw" />
       </motion.div>
-      <div className="absolute inset-0 bg-ink/50" />
+      <div className="absolute inset-0 bg-linear-to-t from-ink/80 via-ink/10 to-transparent" />
 
       <div className="relative flex h-full max-w-[1600px] flex-col justify-end px-6 pb-20 md:mx-auto md:px-10 md:pb-24">
-        <span className="font-display text-sm text-brass">0{index + 1}</span>
-        <h3 className="mt-4 max-w-2xl font-display text-4xl font-bold uppercase leading-[1.05] text-paper sm:text-6xl">
+        <h3 className="max-w-2xl font-display text-4xl font-bold uppercase leading-[1.05] text-paper [text-shadow:0_2px_12px_rgba(0,0,0,0.6)] sm:text-6xl">
           {project.title}
         </h3>
-        <p className="mt-4 text-sm uppercase tracking-[0.25em] text-paper/60">
-          {project.location}
+        <p className="mt-4 text-sm font-bold uppercase tracking-[0.25em] text-[#e8c547]">
+          {project.category.join(" • ")}
         </p>
       </div>
     </motion.div>

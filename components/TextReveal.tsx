@@ -16,17 +16,23 @@ export function TextReveal({
 }) {
   const Comp = motion[as as "div"];
   return (
-    <div className="overflow-hidden">
+    <motion.div
+      className="overflow-hidden"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+    >
       <Comp
         className={className}
-        initial={{ y: "110%", opacity: 0 }}
-        whileInView={{ y: "0%", opacity: 1 }}
-        viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+        variants={{
+          hidden: { y: "110%", opacity: 0 },
+          visible: { y: "0%", opacity: 1 },
+        }}
         transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
       >
         {children}
       </Comp>
-    </div>
+    </motion.div>
   );
 }
 

@@ -53,7 +53,7 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   data-cursor="link"
-                  className={`relative text-xs font-medium uppercase tracking-[0.15em] text-paper/80 transition-colors hover:text-paper ${
+                  className={`relative text-xs font-medium uppercase tracking-[0.15em] text-paper/90 transition-colors hover:text-paper ${
                     pathname === link.href ? "text-paper" : ""
                   }`}
                 >
@@ -72,7 +72,7 @@ export function Navbar() {
               data-cursor="button"
               className="rounded-full bg-ember px-6 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-paper transition-colors hover:bg-[#d95c17]"
             >
-              Get Consultation
+              Get a Consultation
             </Link>
           </div>
 

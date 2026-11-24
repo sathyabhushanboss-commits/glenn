@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
+import { FitImage } from "./FitImage";
 import { X } from "lucide-react";
 import { useEffect } from "react";
 import type { PortfolioProject } from "@/lib/data";
@@ -62,27 +62,22 @@ export function PortfolioModal({
               <X size={18} />
             </button>
 
-            <div className="relative aspect-[4/3] md:aspect-auto">
-              <Image
+            <div className="relative aspect-[4/3] overflow-hidden md:aspect-auto md:min-h-[420px]">
+              <FitImage
                 src={project.image}
                 alt={project.title}
-                fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
               />
             </div>
 
             <div className="flex flex-col justify-center p-8 md:p-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-ember">
+              <p className="text-sm font-extrabold uppercase tracking-[0.25em] text-ember">
                 {project.category.join(" • ")}
               </p>
               <h3 className="mt-4 font-display text-3xl font-bold uppercase leading-tight text-ink sm:text-4xl">
                 {project.title}
               </h3>
-              <p className="mt-3 text-sm uppercase tracking-[0.1em] text-ink/50">
-                {project.location}
-              </p>
-              <p className="mt-6 text-lg leading-relaxed text-ink/70">
+              <p className="mt-6 text-lg font-medium leading-relaxed text-ink">
                 {project.description}
               </p>
             </div>

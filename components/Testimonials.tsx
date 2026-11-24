@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { testimonials } from "@/lib/data";
+import { SectionBg } from "./SectionBg";
 
 export function Testimonials() {
   const [index, setIndex] = useState(0);
@@ -15,10 +16,11 @@ export function Testimonials() {
   }, []);
 
   return (
-    <section className="bg-paper px-6 py-28 md:px-10 md:py-36">
+    <section className="relative isolate overflow-hidden bg-paper px-6 py-28 md:px-10 md:py-36">
+      <SectionBg photo="1615874959474-d609969a20ed" />
       <div className="mx-auto max-w-3xl text-center">
-        <p className="mb-10 text-xs font-semibold uppercase tracking-[0.3em] text-ember">
-          What clients say
+        <p className="mb-10 text-sm font-extrabold uppercase tracking-[0.25em] text-ember">
+          What our clients say
         </p>
 
         <div className="relative min-h-[220px]">

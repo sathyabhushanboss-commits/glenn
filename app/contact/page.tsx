@@ -33,7 +33,7 @@ export default function ContactPage() {
 
       <section className="bg-ink px-6 pb-20 pt-40 text-paper md:px-10 md:pb-28 md:pt-48">
         <div className="mx-auto max-w-[1600px]">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-brass">
+          <p className="mb-4 text-sm font-extrabold uppercase tracking-[0.25em] text-brass">
             Contact
           </p>
           <TextReveal
@@ -42,9 +42,9 @@ export default function ContactPage() {
           >
             Let&apos;s build your space.
           </TextReveal>
-          <FadeUp delay={0.15} className="mt-6 max-w-xl text-lg text-paper/70">
-            {site.name} — {site.tagline}. Tell us about your project and
-            we&apos;ll get back to you shortly.
+          <FadeUp delay={0.15} className="mt-6 max-w-xl text-lg text-paper/90 font-medium">
+            Tell us about your project and{" "}
+            <span className="font-bold text-[#e8c547]">our team will get back to you shortly</span>.
           </FadeUp>
 
           <div className="mt-12 flex flex-wrap gap-4">
@@ -70,7 +70,7 @@ export default function ContactPage() {
       <section className="bg-paper px-6 py-24 md:px-10 md:py-32">
         <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
           <div>
-            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.3em] text-ember">
+            <p className="mb-6 text-sm font-extrabold uppercase tracking-[0.25em] text-ember">
               Request a Consultation
             </p>
             <h2 className="font-display text-3xl font-bold uppercase text-ink sm:text-4xl">
@@ -82,13 +82,13 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.3em] text-ember">
+            <p className="mb-6 text-sm font-extrabold uppercase tracking-[0.25em] text-ember">
               Visit Us
             </p>
             <h2 className="font-display text-2xl font-bold uppercase text-ink sm:text-3xl">
               {site.name}
             </h2>
-            <address className="mt-4 not-italic text-ink/70">
+            <address className="mt-4 not-italic text-ink">
               {site.address.line1}
               <br />
               {site.address.line2}
@@ -97,7 +97,7 @@ export default function ContactPage() {
             </address>
             <a
               href={site.phoneHref}
-              className="mt-4 block text-ink/70 hover:text-ink"
+              className="mt-4 block text-ink hover:text-ink"
             >
               {site.phone}
             </a>

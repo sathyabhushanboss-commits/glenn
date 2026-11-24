@@ -5,7 +5,7 @@ export function Marquee({ items }: { items: string[] }) {
       <div className="marquee-track">
         {doubled.map((item, i) => (
           <div key={i} className="flex items-center">
-            <span className="whitespace-nowrap px-6 font-display text-sm font-semibold uppercase tracking-[0.3em] text-ink/60">
+            <span className="whitespace-nowrap px-6 font-display text-sm font-semibold uppercase tracking-[0.3em] text-ink">
               {item}
             </span>
             <span className="text-brass">✦</span>

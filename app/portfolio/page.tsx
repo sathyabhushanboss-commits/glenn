@@ -15,7 +15,7 @@ export default function PortfolioPage() {
   return (
     <section className="bg-paper px-6 pb-28 pt-40 md:px-10 md:pb-36 md:pt-48">
       <div className="mx-auto max-w-[1600px]">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-ember">
+        <p className="mb-4 text-sm font-extrabold uppercase tracking-[0.25em] text-ember">
           Portfolio
         </p>
         <TextReveal
@@ -24,7 +24,7 @@ export default function PortfolioPage() {
         >
           Spaces that speak for themselves.
         </TextReveal>
-        <FadeUp delay={0.15} className="mt-6 max-w-xl text-lg text-ink/60">
+        <FadeUp delay={0.15} className="mt-6 max-w-xl text-lg text-ink font-medium">
           A selection of homes designed around the people who live in
           them.
         </FadeUp>

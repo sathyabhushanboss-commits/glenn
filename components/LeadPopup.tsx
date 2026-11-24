@@ -71,7 +71,7 @@ export function LeadPopup() {
             <button
               aria-label="Close popup"
               onClick={() => setOpen(false)}
-              className="absolute right-5 top-5 text-2xl leading-none text-ink/50 hover:text-ink"
+              className="absolute right-5 top-5 text-2xl leading-none text-ink hover:text-ink"
             >
               ×
             </button>
@@ -84,13 +84,13 @@ export function LeadPopup() {
               className="h-14 w-auto"
             />
 
-            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-ember">
+            <p className="mt-6 text-sm font-extrabold uppercase tracking-[0.25em] text-ember">
               Let&apos;s Talk
             </p>
             <h3 className="mt-3 font-display text-3xl font-bold uppercase leading-tight text-ink">
               Let&apos;s design your dream space.
             </h3>
-            <p className="mt-3 text-ink/60">
+            <p className="mt-3 text-ink">
               Share your details and our team will get in touch with you.
             </p>
 

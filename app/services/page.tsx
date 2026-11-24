@@ -6,7 +6,7 @@ import { buildMetadata, baseKeywords } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Residential Interior Design Services | Glenn Interior",
   description:
-    "Residential interior design services in Bengaluru — full home interiors, modular kitchens, living rooms, bedrooms, turnkey projects and office interiors, designed and manufactured in-house.",
+    "Residential interior design services in Bengaluru — full home interiors, modular kitchens and living rooms, bedrooms and home offices, and turnkey projects, all designed and manufactured in-house.",
   path: "/services",
   keywords: baseKeywords,
 });
@@ -15,7 +15,7 @@ export default function ServicesPage() {
   return (
     <section className="relative bg-paper px-6 pb-28 pt-40 md:px-10 md:pb-36 md:pt-48">
       <div className="mx-auto max-w-[1600px]">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-ember">
+        <p className="mb-4 text-sm font-extrabold uppercase tracking-[0.25em] text-ember">
           Services
         </p>
         <TextReveal
@@ -24,9 +24,12 @@ export default function ServicesPage() {
         >
           What we design.
         </TextReveal>
-        <FadeUp delay={0.15} className="mt-6 max-w-xl text-lg text-ink/60">
-          From a single modular kitchen to a complete turnkey home —
-          design, manufacturing, assembly and installation, all in-house.
+        <FadeUp delay={0.15} className="mt-6 max-w-xl text-lg text-ink font-medium">
+          From a single modular kitchen to a complete turnkey home, we handle{" "}
+          <span className="font-bold text-ember">
+            design, manufacturing, assembly and installation
+          </span>
+          , all in-house.
         </FadeUp>
 
         <div className="relative mt-16">

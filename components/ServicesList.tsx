@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { FitImage } from "./FitImage";
 import { services, type ServiceItem } from "@/lib/data";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -62,14 +63,14 @@ function Lightbox({
       className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/95 p-4 md:p-10"
       onClick={onClose}
     >
-      <div className="absolute left-6 top-6 text-xs font-semibold uppercase tracking-[0.3em] text-paper/60">
+      <div className="absolute left-6 top-6 text-xs font-semibold uppercase tracking-[0.3em] text-paper/90">
         {service.title} — {String(index + 1).padStart(2, "0")} / {total}
       </div>
       <button
         type="button"
         onClick={onClose}
         aria-label="Close gallery"
-        className="absolute right-6 top-4 text-3xl text-paper/70 transition-colors hover:text-paper"
+        className="absolute right-6 top-4 text-3xl text-paper/90 transition-colors hover:text-paper"
       >
         ×
       </button>
@@ -98,7 +99,7 @@ function Lightbox({
           prev();
         }}
         aria-label="Previous image"
-        className="absolute left-2 top-1/2 -translate-y-1/2 px-4 py-6 text-3xl text-paper/70 transition-colors hover:text-brass md:left-6"
+        className="absolute left-2 top-1/2 -translate-y-1/2 px-4 py-6 text-3xl text-paper/90 transition-colors hover:text-brass md:left-6"
       >
         ←
       </button>
@@ -109,7 +110,7 @@ function Lightbox({
           next();
         }}
         aria-label="Next image"
-        className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-6 text-3xl text-paper/70 transition-colors hover:text-brass md:right-6"
+        className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-6 text-3xl text-paper/90 transition-colors hover:text-brass md:right-6"
       >
         →
       </button>
@@ -136,12 +137,11 @@ function ServiceGallery({ service }: { service: ServiceItem }) {
             className={`group/img relative overflow-hidden bg-ink/5 ${spans[i] ?? ""}`}
             aria-label={`Open ${service.title} image ${i + 1}`}
           >
-            <Image
+            <FitImage
               src={src}
               alt={`${service.title} — premium interior ${i + 1}`}
-              fill
               sizes="(max-width: 768px) 50vw, 25vw"
-              className="object-cover transition-transform duration-[1200ms] ease-out group-hover/img:scale-110"
+              className="transition-transform duration-[1200ms] ease-out group-hover/img:scale-105"
             />
             <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover/img:opacity-100" />
             <span className="pointer-events-none absolute bottom-3 left-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-paper opacity-0 transition-opacity duration-500 group-hover/img:opacity-100">
@@ -177,11 +177,11 @@ function ServiceRow({ service, index }: { service: ServiceItem; index: number })
           <h3 className="font-display text-2xl font-bold uppercase text-ink sm:text-4xl">
             {service.title}
           </h3>
-          <p className="mt-2 text-ink/60">{service.short}</p>
+          <p className="mt-2 text-ink">{service.short}</p>
         </div>
         <div>
-          <p className="text-sm text-ink/60">{service.description}</p>
-          <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs uppercase tracking-[0.1em] text-ink/40">
+          <p className="text-sm text-ink">{service.description}</p>
+          <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs uppercase tracking-[0.1em] text-ink/80">
             {service.benefits.map((b) => (
               <li key={b}>• {b}</li>
             ))}

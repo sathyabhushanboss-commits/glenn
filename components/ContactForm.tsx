@@ -6,11 +6,9 @@ import { MagneticButton } from "./MagneticButton";
 
 const projectTypes = [
   "Full Home Interiors",
-  "Modular Kitchens",
-  "Living Room Design",
-  "Bedroom Design",
+  "Modular Kitchen & Living Room",
+  "Bedroom & Home Office",
   "Turnkey Projects",
-  "Office Interiors",
   "Other",
 ];
 
@@ -53,7 +51,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
         <p className="font-display text-xl font-semibold uppercase text-ink">
           Thank you.
         </p>
-        <p className="mt-3 text-ink/60">
+        <p className="mt-3 text-ink">
           Our team will get in touch with you shortly.
         </p>
       </motion.div>
@@ -97,7 +95,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
 
       {!compact && (
         <div>
-          <label htmlFor="projectType" className="mb-2 block text-xs font-semibold uppercase tracking-[0.15em] text-ink/50">
+          <label htmlFor="projectType" className="mb-2 block text-xs font-semibold uppercase tracking-[0.15em] text-ink">
             Project Type
           </label>
           <select

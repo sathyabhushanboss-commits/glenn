@@ -11,7 +11,12 @@ function detectDesktopPointer() {
 }
 
 export function CustomCursor() {
-  const [enabled] = useState(detectDesktopPointer);
+  // Start disabled so server and first client render match; detect after mount.
+  const [enabled, setEnabled] = useState(false);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setEnabled(detectDesktopPointer());
+  }, []);
   const [variant, setVariant] = useState<"default" | "button" | "view" | "link">("default");
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
@@ -39,7 +44,7 @@ export function CustomCursor() {
       document.documentElement.classList.remove("cursor-none-desktop");
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [enabled]);
 
   if (!enabled) return null;
 

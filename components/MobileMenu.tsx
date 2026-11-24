@@ -63,7 +63,7 @@ export function MobileMenu({ onClose }: { onClose: () => void }) {
       >
         <a
           href={site.phoneHref}
-          className="text-center text-sm uppercase tracking-[0.15em] text-paper/70"
+          className="text-center text-sm uppercase tracking-[0.15em] text-paper/90"
         >
           Call {site.phone}
         </a>
@@ -74,7 +74,7 @@ export function MobileMenu({ onClose }: { onClose: () => void }) {
           onClick={onClose}
           className="rounded-full bg-ember py-4 text-center text-xs font-semibold uppercase tracking-[0.15em] text-paper"
         >
-          Get Consultation
+          Get a Consultation
         </a>
       </motion.div>
     </motion.div>

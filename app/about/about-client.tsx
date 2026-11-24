@@ -19,6 +19,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { ImageReveal } from "@/components/ImageReveal";
+import { FitImage } from "@/components/FitImage";
 import { TextReveal, FadeUp } from "@/components/TextReveal";
 import { MagneticButton } from "@/components/MagneticButton";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
@@ -162,7 +163,7 @@ function SectionEyebrow({
         viewport={{ once: true, margin: "-10% 0px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`font-display text-xs tabular-nums ${
-          tone === "dark" ? "text-ink/40" : "text-paper/40"
+          tone === "dark" ? "text-ink/80" : "text-paper/80"
         }`}
       >
         {number}
@@ -323,7 +324,7 @@ function Hero() {
       <CornerMarks tone="light" />
 
       {/* coordinate-style decorative text */}
-      <div className="pointer-events-none absolute right-6 top-6 hidden text-right text-[10px] uppercase tracking-[0.3em] text-paper/40 md:block md:right-10 md:top-10">
+      <div className="pointer-events-none absolute right-6 top-6 hidden text-right text-[10px] uppercase tracking-[0.3em] text-paper/80 md:block md:right-10 md:top-10">
         <p>12.9716° N</p>
         <p>77.5946° E</p>
       </div>
@@ -333,7 +334,7 @@ function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.35em] text-brass"
+          className="mb-5 flex items-center gap-3 text-sm font-extrabold uppercase tracking-[0.25em] text-brass"
         >
           <span className="h-px w-8 bg-brass" />
           About Glenn Interior
@@ -353,13 +354,13 @@ function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.55, ease: "easeOut" }}
-          className="mt-8 flex flex-col gap-4 text-paper/80 sm:flex-row sm:items-center sm:gap-8"
+          className="mt-8 flex flex-col gap-4 text-paper/90 sm:flex-row sm:items-center sm:gap-8"
         >
           <p className="text-base font-medium sm:text-lg">
             Residential Interiors
           </p>
           <span className="hidden h-4 w-px bg-paper/30 sm:block" />
-          <p className="text-xs uppercase tracking-[0.25em] text-paper/60">
+          <p className="text-xs uppercase tracking-[0.25em] text-paper/90">
             Design · Manufacture · Assemble · Install
           </p>
         </motion.div>
@@ -368,7 +369,7 @@ function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7, ease: "easeOut" }}
-          className="mt-6 flex items-center gap-6 text-xs uppercase tracking-[0.25em] text-paper/50"
+          className="mt-6 flex items-center gap-6 text-xs uppercase tracking-[0.25em] text-paper/90"
         >
           <span>Bengaluru / India</span>
           <span className="h-1 w-1 rounded-full bg-brass" />
@@ -383,7 +384,7 @@ function Hero() {
         transition={{ delay: 1.1, duration: 0.8 }}
         className="absolute bottom-8 right-6 z-10 flex flex-col items-center gap-3 md:right-10"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em] text-paper/60">
+        <span className="text-[10px] uppercase tracking-[0.3em] text-paper/90">
           Scroll to explore
         </span>
         <span className="relative h-14 w-px overflow-hidden bg-paper/20">
@@ -428,12 +429,14 @@ function OurStory() {
           >
             Design, manufacturing and installation, under one roof.
           </TextReveal>
-          <FadeUp delay={0.15} className="mt-6 max-w-xl text-lg text-ink/70">
-            We provide design, assembly and installation services for
-            homes since {site.since ?? "2003"}.
-            Every project is built around a customised, quality-first and
-            cost-effective approach, backed by our in-house manufacturing
-            capability.
+          <FadeUp delay={0.15} className="mt-6 max-w-xl text-lg text-ink font-medium">
+            We have been providing{" "}
+            <span className="font-bold text-ember">
+              design, manufacturing, assembly and installation
+            </span>{" "}
+            services for homes since {site.since ?? "2003"}. Every project
+            follows a customised, quality-first and cost-effective approach,
+            backed by our in-house manufacturing capability.
           </FadeUp>
           <DrawLine tone="ember" className="mt-10 w-24" />
         </div>
@@ -455,7 +458,7 @@ function OurStory() {
               className="pointer-events-none absolute -bottom-4 -right-4 hidden h-24 w-24 border-b border-r border-brass/50 md:block"
             />
           </motion.div>
-          <div className="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-ink/40">
+          <div className="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-ink/80">
             <span>Fig. 01</span>
             <span className="h-px flex-1 bg-ink/10" />
             <span>In-house craftsmanship</span>
@@ -472,11 +475,9 @@ function OurStory() {
 
 const residentialServices = [
   "Full Home Interiors",
-  "Modular Kitchens",
-  "Living Room Design",
-  "Bedroom Design",
+  "Modular Kitchen & Living Room",
+  "Bedroom & Home Office",
   "Turnkey Projects",
-  "Office Interiors",
 ];
 
 function SplitPanel({
@@ -517,12 +518,10 @@ function SplitPanel({
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="absolute inset-0"
       >
-        <Image
+        <FitImage
           src={image}
           alt={alt}
-          fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-ink/10" />
       </motion.div>
@@ -547,7 +546,7 @@ function SplitPanel({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15, duration: 0.6 }}
-          className="mt-4 max-w-xs text-sm text-paper/70"
+          className="mt-4 max-w-xs text-sm text-paper/90"
         >
           {subtitle}
         </motion.p>
@@ -570,7 +569,7 @@ function SplitPanel({
                 show: { opacity: 1, y: 0 },
               }}
               transition={{ duration: 0.4 }}
-              className="text-xs uppercase tracking-[0.15em] text-paper/60"
+              className="text-xs uppercase tracking-[0.15em] text-paper/90"
             >
               {service}
             </motion.li>
@@ -640,7 +639,7 @@ const processStages = [
   {
     label: "Manufacture",
     number: "02",
-    text: "Furniture and fittings are built in our own facility, checked for quality before they leave.",
+    text: "Furniture and fittings are built in our own facility and quality-checked before they leave.",
     image:
       "https://images.unsplash.com/photo-1601058268499-e52658b8bb88?q=80&w=1600&auto=format&fit=crop",
     alt: "In-house manufacturing workshop crafting furniture",
@@ -737,7 +736,7 @@ function ProcessSection() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
                       transition={{ duration: 0.4 }}
-                      className="mt-4 max-w-xs text-sm text-paper/70"
+                      className="mt-4 max-w-xs text-sm text-paper/90"
                     >
                       {stage.text}
                     </motion.p>
@@ -806,7 +805,7 @@ function Manufacturing() {
             />
           </motion.div>
           <CornerMarks tone="dark" className="inset-2" />
-          <div className="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-ink/40">
+          <div className="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-ink/80">
             <span>Material · Finish · Hardware</span>
           </div>
         </div>
@@ -819,7 +818,7 @@ function Manufacturing() {
           >
             Made in-house. Built for you.
           </TextReveal>
-          <FadeUp delay={0.15} className="mt-6 max-w-md text-lg text-ink/70">
+          <FadeUp delay={0.15} className="mt-6 max-w-md text-lg text-ink font-medium">
             Our in-house manufacturing approach gives us greater control over
             customisation, quality, finishing, timelines and cost.
           </FadeUp>
@@ -842,7 +841,7 @@ function Manufacturing() {
                   show: { opacity: 1, y: 0 },
                 }}
                 transition={{ duration: 0.4 }}
-                className="rounded-full border border-ink/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink/70"
+                className="rounded-full border border-ink/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink"
               >
                 {l}
               </motion.span>
@@ -863,7 +862,7 @@ function Manufacturing() {
 const timeline = [
   {
     year: "2003",
-    text: "Glenn Interior begins, offering design and installation for homes in Bengaluru.",
+    text: "Glenn Interior is founded, offering design and installation for homes in Bengaluru.",
     image:
       "https://images.unsplash.com/photo-1600210492493-0946911123ea?q=80&w=1600&auto=format&fit=crop",
   },
@@ -937,7 +936,7 @@ function Timeline() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -16 }}
                     transition={{ duration: 0.5, delay: 0.05 }}
-                    className="mt-6 max-w-sm text-lg text-ink/70"
+                    className="mt-6 max-w-sm text-lg text-ink font-medium"
                   >
                     {timeline[active].text}
                   </motion.p>
@@ -967,12 +966,10 @@ function Timeline() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="absolute inset-0"
               >
-                <Image
+                <FitImage
                   src={timeline[active].image}
                   alt={`Glenn Interior in ${timeline[active].year}`}
-                  fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
                 />
               </motion.div>
             </AnimatePresence>
@@ -1049,7 +1046,7 @@ function EditorialStatement() {
         <h2 className="font-display text-3xl font-bold uppercase leading-[1.05] sm:text-5xl md:text-6xl">
           <StaggerWords
             text="We don't just design rooms."
-            className="text-ink/40"
+            className="text-ink/80"
           />
           <WipeLine className="mt-2 text-ink" delay={0.5}>
             We design how they feel.
@@ -1069,7 +1066,7 @@ const philosophy = [
   {
     number: "01",
     title: "Function First",
-    text: "Spaces designed around how people actually live and work.",
+    text: "Spaces designed around how people actually live.",
   },
   {
     number: "02",
@@ -1180,7 +1177,7 @@ function DesignPhilosophy() {
                   animate={{ x: isActive ? 6 : 0 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   className={`mt-4 font-display text-2xl font-bold uppercase leading-tight transition-colors duration-500 ${
-                    isActive ? "text-paper" : "text-paper/50"
+                    isActive ? "text-paper" : "text-paper/90"
                   }`}
                 >
                   {item.title}
@@ -1188,7 +1185,7 @@ function DesignPhilosophy() {
 
                 <p
                   className={`mt-4 max-w-xs text-sm transition-colors duration-500 ${
-                    isActive ? "text-paper/70" : "text-paper/35"
+                    isActive ? "text-paper/90" : "text-paper/35"
                   }`}
                 >
                   {item.text}
@@ -1230,7 +1227,7 @@ function Statistics() {
           {[
             { value: 20, suffix: "+", label: "Years of Practice" },
             { value: 2003, suffix: "", label: "Established" },
-            { value: 6, suffix: "", label: "Core Services" },
+            { value: 5000, suffix: "+", label: "Projects Delivered" },
             { value: 1, suffix: "", label: "Integrated Process" },
           ].map((stat, i) => (
             <motion.div
@@ -1244,7 +1241,7 @@ function Statistics() {
               <p className="font-display text-4xl font-bold text-brass md:text-5xl">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </p>
-              <p className="mt-2 text-xs uppercase tracking-[0.15em] text-paper/60">
+              <p className="mt-2 text-xs uppercase tracking-[0.15em] text-paper/90">
                 {stat.label}
               </p>
               <span className="mt-4 block h-px w-8 bg-paper/15" />
@@ -1262,8 +1259,8 @@ function Statistics() {
 
 const testimonials = [
   "We are extremely happy with our modular kitchen and wardrobe design.",
-  "The entire process was smooth, professional, and well-coordinated.",
-  "One of the best service 💯 happy with the service.",
+  "The entire process was smooth, professional and well coordinated.",
+  "One of the best services. Very happy with the work. 💯",
 ];
 
 function Testimonials() {
@@ -1302,7 +1299,7 @@ function Testimonials() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -14 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="px-4 text-xl font-medium text-ink/80 md:text-2xl"
+              className="px-4 text-xl font-medium text-ink md:text-2xl"
             >
               {testimonials[index]}
             </motion.p>
@@ -1310,7 +1307,7 @@ function Testimonials() {
         </div>
 
         <div className="mt-10 flex items-center justify-center gap-4">
-          <span className="font-display text-xs tabular-nums text-ink/40">
+          <span className="font-display text-xs tabular-nums text-ink/80">
             {String(index + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
           </span>
           <div className="relative h-px w-24 bg-ink/10">
@@ -1347,7 +1344,7 @@ function Testimonials() {
 
 const portfolioItems = [
   {
-    title: "Residential — Living Room",
+    title: "Living Room",
     category: "Residential",
     image:
       "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1400&auto=format&fit=crop",
@@ -1355,7 +1352,7 @@ const portfolioItems = [
     aspect: "aspect-square",
   },
   {
-    title: "Modular Kitchen",
+    title: "Modular Kitchen & Living",
     category: "Residential",
     image:
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop",
@@ -1363,8 +1360,8 @@ const portfolioItems = [
     aspect: "aspect-[3/4]",
   },
   {
-    title: "Office Interior",
-    category: "Office",
+    title: "Home Office",
+    category: "Residential",
     image:
       "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop",
     span: "",
@@ -1379,7 +1376,7 @@ const portfolioItems = [
     aspect: "aspect-square",
   },
   {
-    title: "Bedroom Design",
+    title: "Master Bedroom",
     category: "Residential",
     image:
       "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1600&auto=format&fit=crop",
@@ -1406,16 +1403,15 @@ function PortfolioTile({
       onMouseLeave={() => cursor.clear()}
       className={`group relative overflow-hidden ${item.span} ${item.aspect}`}
     >
-      <Image
+      <FitImage
         src={item.image}
         alt={item.title}
-        fill
         sizes="(max-width: 768px) 100vw, 33vw"
-        className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+        className="transition-transform duration-700 ease-out group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/40" />
       <div className="absolute inset-0 flex flex-col justify-between p-5 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-        <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-paper/80">
+        <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-paper/90">
           <span>{String(index + 1).padStart(2, "0")}</span>
           <span>{item.category}</span>
         </div>
@@ -1497,7 +1493,7 @@ function FinalCTA() {
         >
           Your space. Your way.
         </TextReveal>
-        <FadeUp delay={0.2} className="mx-auto mt-6 max-w-md text-paper/70">
+        <FadeUp delay={0.2} className="mx-auto mt-6 max-w-md text-paper/90">
           Home interiors designed around your needs.
         </FadeUp>
         <DrawLine tone="brass" className="mx-auto mt-8 w-16" />

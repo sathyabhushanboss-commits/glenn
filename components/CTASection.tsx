@@ -24,7 +24,7 @@ export function CTASection() {
         >
           Ready to transform your space?
         </TextReveal>
-        <p className="mx-auto mt-6 max-w-lg text-lg text-paper/70">
+        <p className="mx-auto mt-6 max-w-lg text-lg text-paper/90 font-medium">
           Let&apos;s create an interior that feels uniquely yours.
         </p>
 

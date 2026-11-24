@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
-import Image from "next/image";
+import { FitImage } from "./FitImage";
 import {
   portfolioFilters,
   portfolioProjects,
@@ -12,10 +12,10 @@ import {
 import { PortfolioModal } from "./PortfolioModal";
 
 const spanClasses: Record<string, string> = {
-  wide: "md:col-span-2 aspect-[16/10]",
-  landscape: "aspect-[4/3]",
-  portrait: "aspect-[3/4] md:row-span-2",
-  square: "aspect-square",
+  wide: "md:col-span-2 aspect-[16/10] md:aspect-auto",
+  landscape: "aspect-[4/3] md:aspect-auto",
+  portrait: "aspect-[3/4] md:aspect-auto md:row-span-2",
+  square: "aspect-square md:aspect-auto",
 };
 
 export function PortfolioGrid() {
@@ -37,7 +37,7 @@ export function PortfolioGrid() {
             className={`shrink-0 rounded-full border px-5 py-2 text-xs font-semibold uppercase tracking-[0.1em] transition-colors duration-300 ${
               filter === f
                 ? "border-ember bg-ember text-paper"
-                : "border-ink/15 text-ink/60 hover:border-ink/40 hover:text-ink"
+                : "border-ink/15 text-ink hover:border-ink/40 hover:text-ink"
             }`}
           >
             {f}
@@ -47,7 +47,7 @@ export function PortfolioGrid() {
 
       <motion.div
         layout
-        className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:auto-rows-[240px]"
+        className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:auto-rows-[300px] md:grid-flow-dense"
       >
         <AnimatePresence mode="popLayout">
           {filtered.map((project) => (
@@ -62,22 +62,18 @@ export function PortfolioGrid() {
               data-cursor="view"
               className={`group relative block overflow-hidden text-left ${spanClasses[project.size]}`}
             >
-              <Image
+              <FitImage
                 src={project.image}
                 alt={project.title}
-                fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                className="transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="pointer-events-none absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-ink/80 via-ink/10 to-transparent p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-brass">
+              <div className="pointer-events-none absolute inset-0 flex flex-col justify-end bg-linear-to-t from-ink/85 via-ink/10 to-transparent p-6">
+                <p className="text-sm font-bold uppercase tracking-[0.15em] text-[#e8c547]">
                   {project.category[0]}
                 </p>
-                <p className="mt-1 font-display text-lg font-semibold text-paper">
+                <p className="mt-1 font-display text-xl font-bold text-paper">
                   {project.title}
-                </p>
-                <p className="text-xs uppercase tracking-[0.1em] text-paper/60">
-                  {project.location}
                 </p>
               </div>
             </motion.button>

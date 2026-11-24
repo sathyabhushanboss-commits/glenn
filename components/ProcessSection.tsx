@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { processSteps } from "@/lib/data";
 import { TextReveal } from "./TextReveal";
+import { SectionBg } from "./SectionBg";
 
 export function ProcessSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -14,7 +15,8 @@ export function ProcessSection() {
   const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section className="bg-ink px-6 py-28 text-paper md:px-10 md:py-36">
+    <section className="relative isolate overflow-hidden bg-ink px-6 py-28 text-paper md:px-10 md:py-36">
+      <SectionBg photo="1503387762-592deb58ef4e" tone="dark" />
       <div className="mx-auto max-w-[1600px]">
         <TextReveal
           as="h2"
@@ -48,7 +50,7 @@ export function ProcessSection() {
                   <h3 className="font-display text-xl font-semibold uppercase sm:text-2xl">
                     {step.title}
                   </h3>
-                  <p className="mt-2 max-w-md text-paper/60">
+                  <p className="mt-2 max-w-md text-paper/90">
                     {step.description}
                   </p>
                 </div>

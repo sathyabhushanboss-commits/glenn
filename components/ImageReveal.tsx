@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { FitImage } from "./FitImage";
 
 export function ImageReveal({
   src,
@@ -25,20 +25,13 @@ export function ImageReveal({
       transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
     >
       <motion.div
-        className="h-full w-full"
+        className="relative h-full w-full"
         initial={{ scale: 1.15 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
         transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
       >
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          sizes={sizes}
-          priority={priority}
-          className="object-cover"
-        />
+        <FitImage src={src} alt={alt} sizes={sizes} priority={priority} />
       </motion.div>
     </motion.div>
   );
