@@ -7,10 +7,7 @@ export type PortfolioCategory =
   | "Kitchen"
   | "Living Room"
   | "Bedroom"
-  | "Wardrobe"
-  | "Villa"
-  | "Office"
-  | "Custom";
+  | "Office";
 
 export type PortfolioProject = {
   id: string;
@@ -70,7 +67,7 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: "contemporary-villa",
     title: "Contemporary Villa",
-    category: ["Residential", "Villa"],
+    category: ["Residential"],
     location: "Sarjapur Road, Bengaluru",
     image:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop",
@@ -103,7 +100,7 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: "luxury-wardrobe-project",
     title: "Luxury Wardrobe Project",
-    category: ["Residential", "Wardrobe"],
+    category: ["Residential"],
     location: "Malleshwaram, Bengaluru",
     image:
       "https://images.unsplash.com/photo-1600166898405-da9535204843?q=80&w=1600&auto=format&fit=crop",
@@ -136,7 +133,7 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: "contemporary-duplex",
     title: "Contemporary Duplex",
-    category: ["Residential", "Villa"],
+    category: ["Residential"],
     location: "Hebbal, Bengaluru",
     image:
       "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1600&auto=format&fit=crop",
@@ -169,7 +166,7 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: "complete-home-transformation",
     title: "Complete Home Transformation",
-    category: ["Residential", "Custom"],
+    category: ["Residential"],
     location: "Basavanagudi, Bengaluru",
     image:
       "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600&auto=format&fit=crop",
@@ -185,10 +182,7 @@ export const portfolioFilters: ("ALL" | PortfolioCategory)[] = [
   "Kitchen",
   "Living Room",
   "Bedroom",
-  "Wardrobe",
-  "Villa",
   "Office",
-  "Custom",
 ];
 
 export type ServiceItem = {

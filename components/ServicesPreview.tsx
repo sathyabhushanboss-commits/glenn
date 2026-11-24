@@ -48,13 +48,15 @@ export function ServicesPreview() {
                   data-cursor="link"
                   className="flex items-center justify-between gap-6"
                 >
-                  <span className="flex-1 font-display text-2xl font-semibold uppercase text-ink transition-transform duration-300 group-hover:translate-x-2 sm:text-3xl">
-                    {service.title}
+                  <span className="flex-1">
+                    <span className="inline-block bg-ember px-3 py-1 font-display text-2xl font-semibold uppercase text-ink transition-transform duration-300 group-hover:translate-x-2 sm:text-3xl">
+                      {service.title}
+                    </span>
                   </span>
-                  <span className="hidden text-sm text-ink sm:block">
+                  <span className="hidden bg-ember px-2 py-1 text-sm text-ink sm:block">
                     {service.tagline}
                   </span>
-                  <span className="text-ink/80 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-ember">
+                  <span className="bg-ember px-2 py-1 text-ink transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>
                 </Link>
